@@ -1,5 +1,6 @@
 ## Hi there 👋
 
+![Lines of code changed this year](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/profile-summary/profile-summary-card-output/MostafaOkasha/stats.svg)
 <!--
 **MostafaOkasha/MostafaOkasha** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
