@@ -1,6 +1,10 @@
 ## Hi there 👋
 
-![Lines of code changed this year](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/profile-summary/profile-summary-card-output/MostafaOkasha/stats.svg)
+
+[![](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/main/profile-summary-card-output/algolia/0-profile-details.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/main/profile-summary-card-output/algolia/1-repos-per-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards) [![](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/main/profile-summary-card-output/algolia/2-most-commit-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/main/profile-summary-card-output/algolia/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards) [![](https://raw.githubusercontent.com/MostafaOkasha/MostafaOkasha/main/profile-summary-card-output/algolia/4-productive-time.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+
 <!--
 **MostafaOkasha/MostafaOkasha** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
