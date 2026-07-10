@@ -16,10 +16,11 @@ jobs:
 
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          CARD_YEAR: ${{ steps.date.outputs.year }}   # this is the trick – it *is* supported as an env var
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}   # <-- THIS IS THE FIX
+          CARD_YEAR: ${{ steps.date.outputs.year }}
         with:
           USERNAME: ${{ github.repository_owner }}
-          BRANCH_NAME: "profile-summary"   # cards will be pushed here
-          UTC_OFFSET: 2                    # Egypt is UTC+2, change to your timezone
+          BRANCH_NAME: "profile-summary"   # output branch
+          UTC_OFFSET: 2                    # Egypt timezone
           EXCLUDE: ""
-          AUTO_PUSH: true                  # the action commits and pushes automatically
+          AUTO_PUSH: true
