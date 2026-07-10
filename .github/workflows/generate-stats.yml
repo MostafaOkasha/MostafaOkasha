@@ -2,15 +2,13 @@ name: Generate lines of code stats
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # runs once a day
-  workflow_dispatch:      # lets you run it manually
+    - cron: '0 0 * * *'   # daily update
+  workflow_dispatch:      # manual trigger
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
       # Get the current year automatically
       - name: Set current year
         id: date
@@ -18,20 +16,10 @@ jobs:
 
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          CARD_YEAR: ${{ steps.date.outputs.year }}   # this is the trick – it *is* supported as an env var
         with:
           USERNAME: ${{ github.repository_owner }}
-          CARD_YEAR: ${{ steps.date.outputs.year }}
-          CARD_TYPE: "stats"
-          # Include only your own commits, not the whole repo
-          COMMIT_BY_ME: "true"
-          # Uncomment the next line to count private contributions
-          # INCLUDE_PRIVATE: "true"
-
-      - name: Commit & push the generated SVG
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add stats.svg
-          git diff --staged --quiet || git commit -m "Update stats card"
-          git push
+          BRANCH_NAME: "profile-summary"   # cards will be pushed here
+          UTC_OFFSET: 2                    # Egypt is UTC+2, change to your timezone
+          EXCLUDE: ""
+          AUTO_PUSH: true                  # the action commits and pushes automatically
