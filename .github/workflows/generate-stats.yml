@@ -2,25 +2,29 @@ name: Generate lines of code stats
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # daily update
-  workflow_dispatch:      # manual trigger
+    - cron: '0 0 * * *'   # daily
+  workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      # Get the current year automatically
+      # 1. Check out the repo (creates a local Git repo with remote)
+      - uses: actions/checkout@v4
+
+      # 2. Get current year
       - name: Set current year
         id: date
         run: echo "year=$(date +'%Y')" >> $GITHUB_OUTPUT
 
+      # 3. Generate the cards and auto-push them to a branch
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}   # <-- THIS IS THE FIX
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}   # your PAT
           CARD_YEAR: ${{ steps.date.outputs.year }}
         with:
           USERNAME: ${{ github.repository_owner }}
-          BRANCH_NAME: "profile-summary"   # output branch
+          BRANCH_NAME: "profile-summary"   # cards will be pushed here
           UTC_OFFSET: 2                    # Egypt timezone
           EXCLUDE: ""
           AUTO_PUSH: true
